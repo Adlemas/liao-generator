@@ -1,6 +1,6 @@
 [package]
 name = "liao-generator"
-version = "0.1.0"
+version = "0.1.1"
 edition = "2021"
 description = "Liao Mental Generator in Rust!"
 license = "MIT"
