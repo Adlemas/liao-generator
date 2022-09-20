@@ -39,7 +39,6 @@ pub fn generate(options: &GenerateOptions) -> Vec<i64> {
             },
         };
 
-        println!("terms: {:?}", terms);
         let term: Option<i64> = generate_term(term_options);
         if let Some(t) = term {
             terms.push(t);
