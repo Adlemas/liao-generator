@@ -1,4 +1,4 @@
-use super::{factor::generate_factor, *};
+use super::{factor::generate_factor};
 
 pub fn generate_term(mut options: TermOptions) -> Option<i64> {
     let mut term: Vec<i64> = Vec::new();

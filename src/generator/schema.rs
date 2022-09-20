@@ -1,6 +1,3 @@
-#[allow(unused_doc_comments)]
-use super::*;
-
 pub fn generate_schema(options: &SchemaOptions) -> Vec<TermSchema> {
     let mut schema: Vec<TermSchema> = vec![];
 
