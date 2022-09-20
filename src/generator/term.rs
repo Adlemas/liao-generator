@@ -1,5 +1,5 @@
 use super::factor::generate_factor;
-use crate::constants::{TermOptions, Operation, FactorOptions, GenerateFormula};
+use crate::constants::{TermOptions, Operation, FactorOptions, GenerateFormula, TermSchema};
 
 pub fn generate_term(mut options: TermOptions) -> Option<i64> {
     let mut term: Vec<i64> = Vec::new();
