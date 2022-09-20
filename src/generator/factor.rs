@@ -2,8 +2,6 @@ use rand::{seq::SliceRandom, thread_rng};
 
 use crate::rules::{bf::new_bf_rule, lf::new_lf_rule, nf::new_nf_rule, *};
 
-use super::*;
-
 fn generate_with_rule(rules: GenerateRules, options: &FactorOptions) -> Option<u8> {
     let mut rng = thread_rng();
 

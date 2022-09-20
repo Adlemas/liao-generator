@@ -1,6 +1,6 @@
-use crate::*;
-
 use self::{schema::generate_schema, term::generate_term};
+
+use crate::constants::{TermOptions, GenerateOptions, SchemaOptions, TermSchema};
 
 mod factor;
 mod schema;
