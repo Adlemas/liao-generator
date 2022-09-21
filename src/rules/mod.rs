@@ -3,6 +3,7 @@ use crate::constants::{GenerateRule, Rule};
 pub mod bf;
 pub mod lf;
 pub mod nf;
+pub mod ff;
 
 pub fn get_value_by_number(number: u8, rule: GenerateRule) -> Result<Rule, String> {
     match number {
