@@ -55,7 +55,9 @@ pub fn generate_term(mut options: TermOptions) -> Option<i64> {
                     } else {
                         None
                     };
-                }        
+                } else {
+                    factor_options.forbidden_number = None;
+                }
             }
         }
 

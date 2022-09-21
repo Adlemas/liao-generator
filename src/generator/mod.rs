@@ -7,6 +7,12 @@ mod schema;
 mod term;
 
 pub fn generate(options: &GenerateOptions) -> Vec<i64> {
+    // check simple rules
+    if options.min >= options.max {
+        // TODO: handle error here
+        panic!("options.min ({}) can't be greater then equal options.max ({})", options.min, options.max);
+    }
+
     let mut terms: Vec<i64> = vec![];
     let mut terms_sum: i64 = 0;
 
