@@ -1,6 +1,7 @@
 use std::{
     fs::{self, File, OpenOptions},
-    path::Path, io::Write,
+    io::Write,
+    path::Path,
 };
 
 use liao_generator::constants::*;
@@ -10,7 +11,7 @@ const LOGS_DIR: &str = "logs";
 const LOOP_COUNT: usize = 1000;
 
 const TERMS_LEN: usize = 10;
-const MIN: i64 = 1;
+const MIN: i64 = 10;
 const MAX: i64 = 99;
 
 const GENERATE_OPTIONS: GenerateOptions = GenerateOptions {
@@ -22,6 +23,7 @@ const GENERATE_OPTIONS: GenerateOptions = GenerateOptions {
 
 pub fn get_formulas() -> Vec<GenerateFormula> {
     vec![
+        GenerateFormula::FF,
         GenerateFormula::BF,
         GenerateFormula::NF,
         GenerateFormula::LF,
@@ -200,7 +202,9 @@ pub fn test_terms_repeating() {
 
             assert!(
                 repeated_at == -1,
-                "{:?} repeated_at: {}", terms, repeated_at
+                "{:?} repeated_at: {}",
+                terms,
+                repeated_at
             );
         }
     }
