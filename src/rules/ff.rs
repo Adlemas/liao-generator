@@ -9,9 +9,9 @@ pub fn new_ff_rule() -> GenerateRules {
             three: vec![7, 8, 9, 0, 2, 3, 4, 1, 5, 6],
             four: vec![6, 7, 8, 9, 0, 1, 2, 3, 4, 5],
             five: vec![6, 7, 8, 9, 5, 0, 1, 2, 3, 4],
-            six: vec![6, 7, 8, 9, 4, 0, 1, 2, 3, 5],
-            seven: vec![6, 7, 8, 9, 4, 3, 0, 1, 2, 5],
-            eight: vec![6, 7, 8, 9, 4, 3, 2, 0, 1, 5],
+            six: vec![6, 7, 8, 4, 0, 1, 2, 3, 5],
+            seven: vec![6, 7, 4, 3, 0, 1, 2, 5],
+            eight: vec![6, 4, 3, 2, 0, 1, 5],
             nine: vec![6, 7, 8, 9, 4, 3, 2, 1, 0, 5],
         },
         decrement: GenerateRule {
