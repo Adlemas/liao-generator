@@ -1,5 +1,6 @@
 use rand::{seq::SliceRandom, thread_rng};
 
+use crate::rules::ff::new_ff_rule;
 use crate::rules::{bf::new_bf_rule, lf::new_lf_rule, nf::new_nf_rule, *};
 use crate::constants::{GenerateRules, GenerateFormula, FactorOptions, Operation};
 
@@ -61,7 +62,7 @@ pub fn generate_factor(options: &FactorOptions) -> Option<u8> {
         GenerateFormula::NF => Some(new_nf_rule()),
         GenerateFormula::LF => Some(new_lf_rule()),
         GenerateFormula::BF => Some(new_bf_rule()),
-        _ => None,
+        GenerateFormula::FF => Some(new_ff_rule()),
     };
 
     if let Some(rules) = rules {
