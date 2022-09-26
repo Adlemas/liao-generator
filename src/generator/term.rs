@@ -1,5 +1,5 @@
 use super::factor::generate_factor;
-use crate::constants::{TermOptions, Operation, FactorOptions, GenerateFormula, TermSchema};
+use crate::constants::{FactorOptions, GenerateFormula, Operation, TermOptions, TermSchema};
 
 pub fn generate_term(mut options: TermOptions) -> Option<i64> {
     let mut term: Vec<i64> = Vec::new();
@@ -32,26 +32,26 @@ pub fn generate_term(mut options: TermOptions) -> Option<i64> {
         factor_options.number = cn as u8;
         if let Some(f_term) = options.previos_term {
             if !leave_repeating {
-                let offset = (f_term.to_string().len() as isize) - cur_num.clone().len() as isize + term.len() as isize;
+                let offset = (f_term.to_string().len() as isize) - cur_num.clone().len() as isize
+                    + term.len() as isize;
 
                 let is_simple_formula = match options.formula {
                     GenerateFormula::NF | GenerateFormula::LF => true,
-                    _ => false
+                    _ => false,
                 };
 
                 if offset < 0 && !is_simple_formula {
                     factor_options.forbidden_number = Some(0);
-                    println!("can't generate forbidden\nf_term: {} ; i: {} ; cur_num: {:?}", f_term, i, cur_num);
                 } else if offset >= 0 {
                     factor_options.forbidden_number = if i as isize + offset >= 0 {
                         Some(
                             f_term
-                            .to_string()
-                            .split("")
-                            .filter(|x| x.len() > 0)
-                            .map(|x| x.parse::<u8>().unwrap())
-                            .collect::<Vec<u8>>()[offset as usize],
-                            )
+                                .to_string()
+                                .split("")
+                                .filter(|x| x.len() > 0)
+                                .map(|x| x.parse::<u8>().unwrap())
+                                .collect::<Vec<u8>>()[offset as usize],
+                        )
                     } else {
                         None
                     };
