@@ -209,3 +209,52 @@ pub fn test_terms_repeating() {
         }
     }
 }
+
+#[test]
+fn test_terms_negative() {
+    init();
+
+    let mut options = GENERATE_OPTIONS;
+
+    let mut file = get_log_file("test_terms_negative");
+
+    for formula in get_formulas() {
+        options.formula = formula;
+        for _ in 0..LOOP_COUNT {
+            let terms = options.generate();
+
+            file.write(
+                format!(
+                    "{:?} => {} \t= {}\n",
+                    formula,
+                    terms
+                        .iter()
+                        .map(|x| x.to_string())
+                        .collect::<Vec<String>>()
+                        .join(" "),
+                    terms.iter().sum::<i64>()
+                )
+                .as_bytes(),
+            )
+            .unwrap();
+
+            let mut negative_at: isize = -1;
+            let mut temp_sum = 0;
+
+            for (i, term) in terms.iter().enumerate() {
+                temp_sum += term;
+                if temp_sum < 0 {
+                    negative_at = i as isize;
+                    break;
+                }
+            }
+
+            assert!(
+                negative_at == -1,
+                "{:?} negative_at: {}",
+                terms,
+                negative_at
+            );
+        }
+    }
+}
